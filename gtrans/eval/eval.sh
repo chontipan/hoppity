@@ -17,7 +17,7 @@ python eval.py \
 	-gnn_type 's2v_multi' \
 	-max_lv 4 \
 	-max_modify_steps 1 \
-	-gpu 1 \
+	-gpu 2 \
 	-resampling True \
 	-comp_method "bilinear" \
 	-bug_type True \
