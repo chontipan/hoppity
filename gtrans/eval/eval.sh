@@ -1,9 +1,10 @@
-data_name=[NAME]
-cooked_root=[DATA_DIR]
-save_dir=[MODEL_DUMP_DIR]
-target_model=[PATH_TO_MODEL_TO_EVALUATE]
-
-export CUDA_VISIBLE_DEVICES=0
+data_name="Hoppity"
+#cooked_root="/storage/hdd/chontipan/cooked-full-fmt-shift_node/"
+cooked_root="/storage/hdd/chontipan/cooked-no-op-fmt-shift_node"
+save_dir="/storage/hdd/chontipan/hoppity/save_dir"
+target_model="/storage/hdd/chontipan/no-diff.ckpt"
+eval_dump_folder="/storage/hdd/chontipan/hoppity/eval_dump/"
+#export CUDA_VISIBLE_DEVICES=0
 
 python eval.py \
 	-target_model $target_model \
@@ -24,4 +25,5 @@ python eval.py \
 	-loc_acc True \
 	-val_acc True \
 	-output_all True \
+	-loc_given True \
 	$@
