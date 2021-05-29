@@ -1,10 +1,11 @@
 data_name="Hoppity"
-#cooked_root="/storage/hdd/chontipan/cooked-full-fmt-shift_node/"
-cooked_root="/storage/hdd/chontipan/cooked-no-op-fmt-shift_node"
+cooked_root="/storage/hdd/chontipan/cooked-full-fmt-shift_node/"
+#cooked_root="/storage/hdd/chontipan/cooked-no-op-fmt-shift_node"
 save_dir="/storage/hdd/chontipan/hoppity/save_dir"
-target_model="/storage/hdd/chontipan/no-diff.ckpt"
+target_model="/storage/hdd/chontipan/hoppity/one-diff.ckpt"
 eval_dump_folder="/storage/hdd/chontipan/hoppity/eval_dump/"
-#export CUDA_VISIBLE_DEVICES=0
+
+export CUDA_VISIBLE_DEVICES=0
 
 python eval.py \
 	-target_model $target_model \
@@ -18,12 +19,11 @@ python eval.py \
 	-gnn_type 's2v_multi' \
 	-max_lv 4 \
 	-max_modify_steps 1 \
-	-gpu 2 \
+	-gpu 0 \
 	-resampling True \
 	-comp_method "bilinear" \
 	-bug_type True \
 	-loc_acc True \
 	-val_acc True \
 	-output_all True \
-	-loc_given True \
 	$@
